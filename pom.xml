@@ -39,26 +39,37 @@
     <module>app</module>
   </modules>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>bom</artifactId>
-        <version>${version.wildfly.swarm}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+ <profiles>
+   <profile>
+     <id>default-dependencies</id>
+     <activation>
+       <activeByDefault>true</activeByDefault>
+     </activation>
 
-      <dependency>
-        <groupId>org.wildfly.swarm</groupId>
-        <artifactId>bom-certified</artifactId>
-        <version>${version.wildfly.swarm}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+     <dependencyManagement>
+       <dependencies>
 
-    </dependencies>
-  </dependencyManagement>
+         <dependency>
+           <groupId>org.wildfly.swarm</groupId>
+           <artifactId>bom</artifactId>
+           <version>${version.wildfly.swarm}</version>
+           <type>pom</type>
+           <scope>import</scope>
+         </dependency>
+
+         <dependency>
+           <groupId>org.wildfly.swarm</groupId>
+           <artifactId>bom-certified</artifactId>
+           <version>${version.wildfly.swarm}</version>
+           <type>pom</type>
+           <scope>import</scope>
+         </dependency>
+
+       </dependencies>
+     </dependencyManagement>
+
+   </profile>
+ </profiles>
 
   <repositories>
     <repository>
